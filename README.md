@@ -11,7 +11,7 @@ The purpose of this repository is to implement fundamental data structures and a
 
 ## Technologies Used
 - **Language**: C++17/20
-- **Compiler**: MSVC (Visual Studio 2022)
+- **Compiler**: MSVC (Visual Studio 2026)
 - **Unit Testing**: GoogleTest (gtest)
 - **Version Control**: Git
 
