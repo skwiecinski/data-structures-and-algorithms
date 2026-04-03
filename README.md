@@ -19,7 +19,7 @@ The purpose of this repository is to implement fundamental data structures and a
 
 ### Data Structures
 - [x] **Stack** (Dynamic Array based)
-- [ ] **Queue**
+- [x] **Queue** (Circular Buffer)
 - [ ] **Singly Linked List**
 - [ ] **Doubly Linked List**
 - [ ] **Binary Search Tree**
