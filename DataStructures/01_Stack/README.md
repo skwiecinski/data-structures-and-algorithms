@@ -1,26 +1,28 @@
 # Stack Implementation (C++)
 
-A minimalist, template-based Stack implementation using a dynamic array.
+A template-based Stack implementation using a dynamic array with **RAII** and **Move Semantics**.
 
-## Features
-- **Templates**: Supports any data type (int, std::string, custom objects).
-- **Dynamic Resizing**: Automatically increases array capacity when full.
-- **Exception Handling**: Throws `std::out_of_range` for operations on an empty stack.
-- **Operator Overloading**: Overloaded `operator<<` for easy inspection of the stack state.
+## Key Features
+- **RAII & Memory Safety**: Uses `std::unique_ptr<T[]>` for automatic memory management, eliminating manual `delete[]` and memory leaks.
+- **Rule of Five**: Fully implemented Copy/Move Constructors and Assignment Operators (Copy-and-Swap idiom).
+- **Modern Optimizations**:
+    - `push(T&&)`: Move version to efficiently handle temporary objects.
+    - `emplace(Args&&...)`: Construct elements directly in stack memory.
+- **STL Compatibility**: Follows standard library conventions (separate `pop()` and `peek()`).
+- **Robust Indexing**: Uses `std::ptrdiff_t` for index safety and `size_t` for capacity management.
 
 ## Complexity
-- **Push**: O(1)
-- **Pop**: O(1)
-- **Peek**: O(1)
-- **Empty**: O(1)
+- **Push / Emplace**: $O(1)$ (amortized)
+- **Pop**: $O(1)$
+- **Peek**: $O(1)$
+- **Size / Empty**: $O(1)$
 
 ## Unit Testing (GoogleTest)
-The project includes a comprehensive test suite covering:
-1. Basic `Push` and `Pop` operations.
-2. Top element inspection (`Peek`).
-3. Memory relocation integrity during heavy data load.
-4. Exception handling for empty stack access.
-5. Verification of `std::string` template instantiation.
+The test suite validates:
+1. **LIFO Integrity**: Correct order of elements.
+2. **Deep Copying**: Memory isolation between copied stacks.
+3. **Move Semantics**: Resource theft and state reset of moved objects.
+4. **Exception Safety**: Bounds checking on empty stack access.
 
 ## How to Run
 1. Open the `.sln` file in Visual Studio.
